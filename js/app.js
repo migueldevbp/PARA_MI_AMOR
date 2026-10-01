@@ -158,7 +158,7 @@
     const polaroids = $("#polaroids");
     polaroids.innerHTML = C.fotos.map((f, i) => `
       <figure class="polaroid" data-src="${f.src}" data-cap="${f.pie}" style="animation-delay:${i * 0.08}s">
-        <div class="frame"><img alt="" src="${f.src}" /></div>
+        <div class="frame"><img alt="" src="${f.src}" loading="${i < 2 ? "eager" : "lazy"}" decoding="async" /></div>
         <figcaption>${f.pie}</figcaption>
       </figure>
     `).join("");
