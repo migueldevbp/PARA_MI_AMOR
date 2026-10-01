@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#07060c" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Un mes más para Sheylhi · de Miguel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <canvas id="stars"></canvas>
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+    <div class="petals" id="petals"></div>
+  </div>
+
+  <div class="loader" id="loader">
+    <div class="heart-loader"></div>
+    <p>Cargando un mes más de amor…</p>
+  </div>
+
+  <main class="app" id="app" hidden>
+    <header class="topbar">
+      <p class="progress-label" id="progressLabel">Inicio</p>
+      <div class="dots" id="dots"></div>
+    </header>
+
+    <!-- 0 INTRO -->
+    <section class="scene scene-center is-active" data-scene="intro">
+      <div class="moon" id="moon" title="Toca la luna"></div>
+      <p class="kicker fade-up">1 de octubre de 2026</p>
+      <h1 class="script-title fade-up delay-1">Para Sheylhi</h1>
+      <p class="her-full fade-up delay-2" id="herFull"></p>
+      <p class="from fade-up delay-3">un universo armado por Miguel Angel</p>
+      <p class="badge fade-up delay-4">✦ un mes más · como cada primero ✦</p>
+      <button class="btn btn-gold fade-up delay-5" data-go="letter">
+        Abrir nuestro viaje
+      </button>
+      <p class="hint fade-up delay-6">Toca la luna si quieres un secreto</p>
+    </section>
+
+    <!-- 1 CARTA -->
+    <section class="scene scene-center" data-scene="letter" hidden>
+      <div class="envelope-wrap" id="envelopeWrap">
+        <button class="envelope" id="envelope" aria-label="Abrir carta">
+          <span class="flap"></span>
+          <span class="pocket">
+            <span class="wax">M</span>
+          </span>
+          <span class="letter-peek"></span>
+        </button>
+        <p class="hint" id="envelopeHint">Toca el sobre para abrirlo</p>
+      </div>
+      <article class="letter-paper" id="letterPaper" hidden>
+        <p class="letter-date" id="letterDate"></p>
+        <h2 class="letter-to" id="letterTo"></h2>
+        <div class="letter-body" id="letterBody"></div>
+        <p class="letter-sign" id="letterSign"></p>
+        <button class="btn btn-gold" data-go="stars">Seguir el camino</button>
+      </article>
+    </section>
+
+    <!-- 2 ESTRELLAS -->
+    <section class="scene scene-game scene-center" data-scene="stars" hidden>
+      <div class="scene-copy">
+        <h2>Atrapa los días</h2>
+        <p>Cada estrella es algo que amo de ti. Atrapa <strong>8</strong> para seguir.</p>
+      </div>
+      <p class="counter" id="starCounter">0 / 8</p>
+      <div class="catch-sky" id="catchSky"></div>
+      <div class="toast" id="starToast" hidden></div>
+    </section>
+
+    <!-- 3 FOTOS -->
+    <section class="scene" data-scene="photos" hidden>
+      <div class="scene-copy">
+        <h2>Recuerdos nuestros</h2>
+        <p>Toca cada polaroid. Cada una guarda un pedacito de nosotros.</p>
+      </div>
+      <div class="polaroids" id="polaroids"></div>
+      <button class="btn btn-gold" data-go="reasons">Seguir mirándote</button>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" hidden>
+      <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">×</button>
+      <img id="lightboxImg" alt="" />
+      <p id="lightboxCap"></p>
+    </div>
+
+    <!-- 4 RAZONES -->
+    <section class="scene" data-scene="reasons" hidden>
+      <div class="scene-copy">
+        <h2>Por qué te elijo</h2>
+        <p>Voltea las cartas. Las 8 esconden un pedazo de lo que siento.</p>
+      </div>
+      <div class="cards" id="cards"></div>
+      <p class="counter" id="cardCounter">0 / 8 volteadas</p>
+      <button class="btn btn-gold" id="btnAfterCards" data-go="constellation" hidden>
+        Unir nuestra constelación
+      </button>
+    </section>
+
+    <!-- 5 CONSTELACIÓN -->
+    <section class="scene scene-game scene-center" data-scene="constellation" hidden>
+      <div class="scene-copy">
+        <h2>Nuestra constelación</h2>
+        <p>Une las estrellas en orden. Van a dibujar un corazón con tu nombre.</p>
+      </div>
+      <div class="constellation" id="constellation">
+        <svg class="constellation-lines" id="constellationLines" viewBox="0 0 100 100" preserveAspectRatio="none"></svg>
+      </div>
+      <p class="counter" id="constCounter">Estrella 1 de 8</p>
+    </section>
+
+    <!-- 6 FINAL -->
+    <section class="scene scene-finale" data-scene="finale" hidden>
+      <div class="finale-burst" id="finaleBurst" aria-hidden="true"></div>
+      <p class="kicker">un mes más · y para siempre</p>
+      <h2 class="script-title finale-name" id="finaleName"></h2>
+      <div class="final-photo" id="finalPhoto"></div>
+      <div class="final-letter" id="finalLetter"></div>
+      <p class="together-names" id="togetherNames"></p>
+      <p class="days-line" id="daysLine"></p>
+      <button class="btn btn-ghost" data-go="intro">Volver a vivir este mes</button>
+    </section>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
